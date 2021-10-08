@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record forcecreate="True" id="decimal_razorpay_rate" model="decimal.precision">
+            <field name="name">Razorpay Rate</field>
+            <field name="digits">2</field>
+        </record>
+
+        <record id="SD" model="razorpay.payment.rule">
+            <field name="name">Security Deposit</field>
+            <field name="code">SD</field>
+            <field name="amount_percentage">0</field>
+        </record>
+
+        <record id="RAB" model="razorpay.payment.rule">
+            <field name="name">Required Avg Balance</field>
+            <field name="code">RAB</field>
+            <field name="amount_percentage">0</field>
+        </record>
+
+        <record id="OTIF" model="razorpay.payment.rule">
+            <field name="name">One Time Integration Fee</field>
+            <field name="code">OTIF</field>
+            <field name="amount_percentage">0</field>
+        </record>
+
+        <record id="AMC" model="razorpay.payment.rule">
+            <field name="name">AMC</field>
+            <field name="code">AMC</field>
+            <field name="amount_percentage">0</field>
+        </record>
+
+        <record id="CC" model="razorpay.payment.rule">
+            <field name="name">Credit Cards (Visa Mastercard, Rupay)</field>
+            <field name="code">CC</field>
+            <field name="amount_percentage">1.70</field>
+        </record>
+
+        <record id="DC-LESS-2000" model="razorpay.payment.rule">
+            <field name="name">Debit Cards &lt; 2000</field>
+            <field name="code">DC-LESS-2000</field>
+            <field name="amount_percentage">0.39</field>
+        </record>
+
+        <record id="DC-ABOVE-2000" model="razorpay.payment.rule">
+            <field name="name">Debit Cards [2000 and Above)</field>
+            <field name="code">DC-ABOVE-2000</field>
+            <field name="amount_percentage">0.80</field>
+        </record>
+
+        <record id="DC-RUPAY" model="razorpay.payment.rule">
+            <field name="name">Debit Card (Rupay)</field>
+            <field name="code">DC-RUPAY</field>
+            <field name="amount_percentage">0.00</field>
+        </record>
+
+        <record id="NB" model="razorpay.payment.rule">
+            <field name="name">Netbanking (HDFC ICICI AXIS SBI KOTAK)</field>
+            <field name="code">NB</field>
+            <field name="amount_percentage">1.60</field>
+        </record>
+
+        <record id="NB-OTHERS" model="razorpay.payment.rule">
+            <field name="name">Netbanking (Others)</field>
+            <field name="code">NB-OTHERS</field>
+            <field name="amount_percentage">1.10</field>
+        </record>
+
+        <record id="UPI" model="razorpay.payment.rule">
+            <field name="name">UPI</field>
+            <field name="code">UPI</field>
+            <field name="amount_percentage">0.00</field>
+        </record>
+
+        <record id="WALLETS" model="razorpay.payment.rule">
+            <field name="name">Wallets</field>
+            <field name="code">WALLETS</field>
+            <field name="amount_percentage">1.73</field>
+        </record>
+
+        <record id="AEDC" model="razorpay.payment.rule">
+            <field name="name">American Express and Diners Club</field>
+            <field name="code">AEDC</field>
+            <field name="amount_percentage">2.90</field>
+        </record>
+
+        <record id="IC" model="razorpay.payment.rule">
+            <field name="name">International Cards</field>
+            <field name="code">IC</field>
+            <field name="amount_percentage">2.90</field>
+        </record>
+    </data>
+</odoo>

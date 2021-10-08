@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_razorpay_payment_rule_user,razorpay.payment.rule.user,model_razorpay_payment_rule,,1,1,1,1
+access_razorpay_settlement,access.razorpay.settlement,model_razorpay_settlement,,1,1,1,1
+access_razorpay_settlement_compute,access.razorpay.settlement.compute,model_razorpay_settlement_compute,,1,1,1,0

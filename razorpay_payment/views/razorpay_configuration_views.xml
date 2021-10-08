@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="razorpay_configuration_form_view">
+            <field name="name">razorpay.configuration.form.view</field>
+            <field name="model">configure.webhook</field>
+            <field name="inherit_id" ref="khra_yelo_orders.configure_webhook_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group" position="inside">
+                    <group string="Razorpay Configuration">
+                        <field name="razorpay_settlement_recon_url"/>
+                        <field name="razorpay_api_key"/>
+                        <field name="razorpay_auth_key"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
