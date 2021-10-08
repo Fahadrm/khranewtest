@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="sh_crm_oppor_checklist_tree_view_inherit" model="ir.ui.view">
+            <field name="name">crm.oppor.checklist.tree</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="arch" type="xml">
+                <field name="stage_id" position="after">
+                    <field name="checklist" widget="progressbar"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="sh_crm_oppor_checklist_kanban_view_inherit" model="ir.ui.view">
+            <field name="name">crm.oppor.checklist.kanban</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_kanban_record_bottom']" position="before">
+                    <div>
+                        <field name="checklist" string="Checklist" widget="percentpie" style="background:Blue;"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sh_crm_lead_checklist_form_view_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.checklist.form</field>
+            <field name="model">crm.lead</field>
+            <!--          	crm.crm_lead_view_form-->
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="checklist" string="Checklist">
+                        <group>
+                            <group>
+                                <field name="checklist_ids" widget="many2many_checkboxes"/>
+                            </group>
+                            <group>
+                                <!--							<button name="btn_checklist_completed" type="action" class="oe_stat_button" style="height:40px;background:White;">-->
+                                <field name="checklist" string="Checklist Completed" widget="percentpie"
+                                       style="height:30px;background:White;"/>
+                                <!--							</button>-->
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sh_crm_lead_checklist_tree_view_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.checklist.tree</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+            <field name="arch" type="xml">
+                <field name="phone" position="after">
+                    <field name="checklist" widget="progressbar"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="sh_crm_lead_oppor_checklist_kanban_view_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.oppor.checklist.kanban</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_lead_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_kanban_record_bottom']" position="before">
+                    <div>
+                        <field name="checklist" string="Checklist" widget="percentpie" style="background:Blue;"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="sh_crm_checklist_form_view" model="ir.ui.view">
+            <field name="name">crm.checklist.form</field>
+            <field name="model">crm.checklist</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="stage_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sh_crm_checklist_tree_view" model="ir.ui.view">
+            <field name="name">crm.checklist.tree</field>
+            <field name="model">crm.checklist</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="stage_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_menu_crm_checklist">
+            <field name="name">CRM Checklist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.checklist</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+    <menuitem id="menu_crm_checklist" name="CRM Custom Checklist" action="action_menu_crm_checklist"
+              parent="crm.crm_menu_config"/>
+
+    <record id="crm_stage_form_view_inherit" model="ir.ui.view">
+        <field name="name">crm.stage.form</field>
+        <field name="model">crm.stage</field>
+        <field name="inherit_id" ref="crm.crm_stage_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='requirements']" position="after">
+                <group>
+                    <field name="checklist_id" string="Checklist"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
